@@ -48,6 +48,19 @@ public class DemandeRestController {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
+	
+//	@GetMapping("/{id}")
+//	@JsonView(Views.ViewDemande.class)
+//	public Demande findDemandeByIdWithMessage(@PathVariable Long id) {
+//
+//		Optional<Demande> optDemande = demandeRepo.findDemandeByIdWithMessage(id);
+//
+//		if (optDemande.isPresent()) {
+//			return optDemande.get();
+//		} else {
+//			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+//		}
+//	}
 
 	@GetMapping("/messagerie/list/{id}/beneficiaire")
 	@JsonView(Views.ViewDemande.class)
