@@ -50,7 +50,7 @@ public class DonRestController {
 	}
 
 	@PostMapping("")
-	public Don create(@RequestBody Long don) {
+	public Don create(@RequestBody Don don) {
 		don = donRepo.save(don);
 
 		return don;
