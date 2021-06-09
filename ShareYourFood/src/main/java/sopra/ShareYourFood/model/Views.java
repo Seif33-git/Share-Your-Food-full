@@ -1,5 +1,5 @@
 package sopra.ShareYourFood.model;
 
-public enum Views {
-
+public class Views {
+	public static class ViewCommon {}
 }
