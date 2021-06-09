@@ -19,22 +19,30 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Don")
 public class Don {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "date_de_mise_en_ligne", length = 255)
+	@JsonView(Views.ViewCommon.class)
 	private Date dateDeMiseEnLigne;
 	@Column(name = "créneau", length = 255)
+	@JsonView(Views.ViewCommon.class)
 	private String creneau;
 	@Column(name = "commentaire", length = 255)
+	@JsonView(Views.ViewCommon.class)
 	private String commentaire;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "destinataire", length = 255)
+	@JsonView(Views.ViewCommon.class)
 	private Destinataire destinataire;
 
 	@ManyToOne(fetch = FetchType.LAZY)

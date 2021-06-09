@@ -18,58 +18,57 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.ShareYourFood.model.Produit;
+import sopra.ShareYourFood.model.Utilisateur;
 import sopra.ShareYourFood.model.Views;
-import sopra.ShareYourFood.repository.IProduitRepository;
-
+import sopra.ShareYourFood.repository.IUtilisateurRepository;
 
 @RestController
-@RequestMapping("/produit")
+@RequestMapping("/utilisateur")
 @CrossOrigin("*")
-public class ProduitRestController {
+public class UtilisateurRestController {
 
 	@Autowired
-	private IProduitRepository produitRepo;
+	private IUtilisateurRepository utilisateurRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewProduit.class)
-	public List<Produit> findAll() {
-		return produitRepo.findAll();
+	@JsonView(Views.ViewUtilisateur.class)
+	public List<Utilisateur> findAll() {
+		return utilisateurRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewProduit.class)
-	public Produit find(@PathVariable String id) {
+	@JsonView(Views.ViewUtilisateur.class)
+	public Utilisateur find(@PathVariable Long id) {
 
-		Optional<Produit> optProduit = produitRepo.findById(id);
+		Optional<Utilisateur> optUtilisateur = utilisateurRepo.findById(id);
 
-		if (optProduit.isPresent()) {
-			return optProduit.get();
+		if (optUtilisateur.isPresent()) {
+			return optUtilisateur.get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
 
 	@PostMapping("")
-	public Produit create(@RequestBody Produit produit) {
-		produit = produitRepo.save(produit);
+	public Utilisateur create(@RequestBody Utilisateur utilisateur) {
+		utilisateur = utilisateurRepo.save(utilisateur);
 
-		return produit;
+		return utilisateur;
 	}
 
 	@PutMapping("/{id}")
-	public Produit update(@RequestBody Produit produit, @PathVariable String id) {
-		if (!produitRepo.existsById(id)) {
+	public Utilisateur update(@RequestBody Utilisateur utilisateur, @PathVariable Long id) {
+		if (!utilisateurRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 
-		produit = produitRepo.save(produit);
+		utilisateur = utilisateurRepo.save(utilisateur);
 
-		return produit;
+		return utilisateur;
 	}
 
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable String id) {
-		produitRepo.deleteById(id);
+	public void delete(@PathVariable Long id) {
+		utilisateurRepo.deleteById(id);
 	}
 }

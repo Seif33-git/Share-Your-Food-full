@@ -12,26 +12,36 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "utilisateur")
 public class Utilisateur {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	@JsonView(Views.ViewCommon.class)
 	@Version
 	private int version;
 	@Column(name = "pseudo")
+	@JsonView(Views.ViewCommon.class)
 	private String pseudo;
 	@Column(name = "mail")
+	@JsonView(Views.ViewCommon.class)
 	private String mail;
 	@Column(name = "mot_de_passe")
+	@JsonView(Views.ViewCommon.class)
 	private String motDePasse;
 	@Column(name = "messagerie_activation")
+	@JsonView(Views.ViewCommon.class)
 	private Boolean messagerieActivation;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "role")
+	@JsonView(Views.ViewCommon.class)
 	private Role role;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "entite_id")
 	private Entite entite;
