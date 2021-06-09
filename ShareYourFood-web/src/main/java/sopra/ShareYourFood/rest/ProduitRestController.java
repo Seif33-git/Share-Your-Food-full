@@ -64,7 +64,6 @@ public class ProduitRestController {
 		}
 
 		produit = produitRepo.save(produit);
-
 		return produit;
 	}
 
