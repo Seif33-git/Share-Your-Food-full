@@ -20,4 +20,11 @@ public class Views {
 	public static class ViewDemande extends ViewCommon{}
 	public class ViewDemandeWithLot extends ViewDemande{}
 	public class ViewDemandeWithEntite  extends ViewDemande{}
+
+	public static class ViewParticulier extends ViewEntite {}
+	public static class ViewParticulierDetail extends ViewParticulier {}
+	public static class ViewAssociation extends ViewEntite {}
+	public static class ViewAssociationDetail extends ViewParticulier {}
+	public static class ViewEntreprise extends ViewEntite {}
+	public static class ViewEntrepriseDetail extends ViewParticulier {}
 }

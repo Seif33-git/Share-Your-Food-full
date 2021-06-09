@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import sopra.ShareYourFood.model.Type;
 
 import com.fasterxml.jackson.annotation.JsonView;
 

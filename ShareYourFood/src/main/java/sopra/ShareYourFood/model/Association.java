@@ -3,15 +3,22 @@ package sopra.ShareYourFood.model;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @DiscriminatorValue("Association")
+@NamedQuery(name = "Association.findAllAssociation", query = "select a from Association a")
 public class Association extends Entite {
 
+	@JsonView(Views.ViewAssociation.class)
 	@Column(name = "numeroAssociation", length = 45)
 	private String numeroAssociation;
 
+	
 	@Column(name = "justificatif")
+	@JsonView(Views.ViewAssociation.class)
 	private String justificatif;
 
 	public Association() {

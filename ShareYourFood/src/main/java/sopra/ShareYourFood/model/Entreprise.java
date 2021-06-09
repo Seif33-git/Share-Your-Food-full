@@ -5,16 +5,22 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.NamedQuery;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @DiscriminatorValue("Entreprise")
+@NamedQuery(name = "Entreprise.findAllEntreprise", query = "select e from Entreprise e")
 public class Entreprise extends Entite {
 
 	@Column(name = "prenom", length = 45)
+	@JsonView(Views.ViewEntreprise.class)
 	private String siret;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "categorie", length = 45)
+	@JsonView(Views.ViewEntreprise.class)
 	private Categorie categorie;
 
 	public Entreprise() {
