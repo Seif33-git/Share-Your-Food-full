@@ -15,23 +15,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Lot")
 public class Lot {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Column(name = "nom")
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column(name = "volume")
+	@JsonView(Views.ViewCommon.class)
 	private Long volume;
 	@Column(name = "dt_peremption_lot")
+	@JsonView(Views.ViewCommon.class)
 	private Date dtPeremptionLot;
 	@Column(name = "photo")
+	@JsonView(Views.ViewCommon.class)
 	private String photo;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "statut")
+	@JsonView(Views.ViewCommon.class)
 	private Statut statut;
+	
 	@ManyToOne
 	@JoinColumn(name = "don_id")
 	private Don don;
