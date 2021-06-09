@@ -48,6 +48,18 @@ public class LotRestController {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
+	
+	@GetMapping("/non-donne-by-entite/{id}")
+	@JsonView(Views.ViewLot.class)
+	public List<Lot> findNonDonneByEntite(@PathVariable Long id) {
+		return lotRepo.findAllNonDonneByEntiteById(id);
+	}
+	
+	@GetMapping("/donne-by-entite/{id}")
+	@JsonView(Views.ViewLot.class)
+	public List<Lot> findDonneByEntite(@PathVariable Long id) {
+		return lotRepo.findAllDonneByEntiteById(id);
+	}
 
 	@PostMapping("")
 	public Lot create(@RequestBody Lot lot) {
