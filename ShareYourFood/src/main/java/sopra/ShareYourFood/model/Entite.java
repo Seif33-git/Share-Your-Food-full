@@ -14,6 +14,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name = "entite")
@@ -22,12 +23,16 @@ import javax.persistence.Table;
 public class Entite {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Column(name = "nom", length = 255)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column(name = "donneur", length = 255)
+	@JsonView(Views.ViewCommon.class)
 	private boolean donneur;
 	@Column(name = "beneficiaire", length = 255)
+	@JsonView(Views.ViewCommon.class)
 	private boolean beneficiaire;
 	
 	@OneToMany(mappedBy = "entite", cascade = CascadeType.ALL)
