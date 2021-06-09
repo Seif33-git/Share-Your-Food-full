@@ -9,21 +9,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Message")
 public class Message {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "contenu")
+	@JsonView(Views.ViewCommon.class)
 	private String contenu;
 	@Column(name = "donneur")
+	@JsonView(Views.ViewCommon.class)
 	private Boolean donneur;
 	@ManyToOne
 	@JoinColumn(name = "demande_id")
+	@JsonView(Views.ViewMessageWithDemande.class)
 	private Demande demande;
 
 	public Message() {

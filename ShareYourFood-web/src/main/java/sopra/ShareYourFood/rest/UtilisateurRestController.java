@@ -18,57 +18,57 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.ShareYourFood.model.Demande;
+import sopra.ShareYourFood.model.Utilisateur;
 import sopra.ShareYourFood.model.Views;
-import sopra.ShareYourFood.repository.IDemandeRepository;
+import sopra.ShareYourFood.repository.IUtilisateurRepository;
 
 @RestController
-@RequestMapping("/demande")
+@RequestMapping("/utilisateur")
 @CrossOrigin("*")
-public class DemandeRestController {
+public class UtilisateurRestController {
 
 	@Autowired
-	private IDemandeRepository demandeRepo;
+	private IUtilisateurRepository utilisateurRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewDemande.class)
-	public List<Demande> findAll() {
-		return demandeRepo.findAll();
+	@JsonView(Views.ViewUtilisateur.class)
+	public List<Utilisateur> findAll() {
+		return utilisateurRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewDemande.class)
-	public Demande find(@PathVariable Long id) {
+	@JsonView(Views.ViewUtilisateur.class)
+	public Utilisateur find(@PathVariable Long id) {
 
-		Optional<Demande> optDemande = demandeRepo.findById(id);
+		Optional<Utilisateur> optUtilisateur = utilisateurRepo.findById(id);
 
-		if (optDemande.isPresent()) {
-			return optDemande.get();
+		if (optUtilisateur.isPresent()) {
+			return optUtilisateur.get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
 
 	@PostMapping("")
-	public Demande create(@RequestBody Demande demande) {
-		demande = demandeRepo.save(demande);
+	public Utilisateur create(@RequestBody Utilisateur utilisateur) {
+		utilisateur = utilisateurRepo.save(utilisateur);
 
-		return demande;
+		return utilisateur;
 	}
 
 	@PutMapping("/{id}")
-	public Demande update(@RequestBody Demande demande, @PathVariable Long id) {
-		if (!demandeRepo.existsById(id)) {
+	public Utilisateur update(@RequestBody Utilisateur utilisateur, @PathVariable Long id) {
+		if (!utilisateurRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 
-		demande = demandeRepo.save(demande);
+		utilisateur = utilisateurRepo.save(utilisateur);
 
-		return demande;
+		return utilisateur;
 	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		demandeRepo.deleteById(id);
+		utilisateurRepo.deleteById(id);
 	}
 }

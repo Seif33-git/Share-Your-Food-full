@@ -17,25 +17,33 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name="demande")
 public class Demande {
 	
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name="dt_demande")
+	@JsonView(Views.ViewCommon.class)
 	private Date dtDemande;
 	@Column(name="statut_notif")
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private StatutNotif statutNotif;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "entite_id")
+	@JsonView(Views.ViewDemandeWithEntite.class)
 	private Entite entite;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "lot_id")
+	@JsonView(Views.ViewDemandeWithLot.class)
 	private Lot lot;
 	@OneToMany(mappedBy = "demande")
 	private List<Message> message = new ArrayList<Message>();

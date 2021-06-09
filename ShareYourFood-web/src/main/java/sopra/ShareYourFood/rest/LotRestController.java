@@ -18,57 +18,57 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.ShareYourFood.model.Demande;
+import sopra.ShareYourFood.model.Lot;
 import sopra.ShareYourFood.model.Views;
-import sopra.ShareYourFood.repository.IDemandeRepository;
+import sopra.ShareYourFood.repository.ILotRepository;
 
 @RestController
-@RequestMapping("/demande")
+@RequestMapping("/lot")
 @CrossOrigin("*")
-public class DemandeRestController {
+public class LotRestController {
 
 	@Autowired
-	private IDemandeRepository demandeRepo;
+	private ILotRepository lotRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewDemande.class)
-	public List<Demande> findAll() {
-		return demandeRepo.findAll();
+	@JsonView(Views.ViewLot.class)
+	public List<Lot> findAll() {
+		return lotRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewDemande.class)
-	public Demande find(@PathVariable Long id) {
+	@JsonView(Views.ViewLot.class)
+	public Lot find(@PathVariable Long id) {
 
-		Optional<Demande> optDemande = demandeRepo.findById(id);
+		Optional<Lot> optLot = lotRepo.findById(id);
 
-		if (optDemande.isPresent()) {
-			return optDemande.get();
+		if (optLot.isPresent()) {
+			return optLot.get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
 
 	@PostMapping("")
-	public Demande create(@RequestBody Demande demande) {
-		demande = demandeRepo.save(demande);
+	public Lot create(@RequestBody Lot lot) {
+		lot = lotRepo.save(lot);
 
-		return demande;
+		return lot;
 	}
 
 	@PutMapping("/{id}")
-	public Demande update(@RequestBody Demande demande, @PathVariable Long id) {
-		if (!demandeRepo.existsById(id)) {
+	public Lot update(@RequestBody Lot lot, @PathVariable Long id) {
+		if (!lotRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 
-		demande = demandeRepo.save(demande);
+		lot = lotRepo.save(lot);
 
-		return demande;
+		return lot;
 	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		demandeRepo.deleteById(id);
+		lotRepo.deleteById(id);
 	}
 }

@@ -18,57 +18,57 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.ShareYourFood.model.Demande;
+import sopra.ShareYourFood.model.Message;
 import sopra.ShareYourFood.model.Views;
-import sopra.ShareYourFood.repository.IDemandeRepository;
+import sopra.ShareYourFood.repository.IMessageRepository;
 
 @RestController
-@RequestMapping("/demande")
+@RequestMapping("/message")
 @CrossOrigin("*")
-public class DemandeRestController {
+public class MessageRestController {
 
 	@Autowired
-	private IDemandeRepository demandeRepo;
+	private IMessageRepository messageRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewDemande.class)
-	public List<Demande> findAll() {
-		return demandeRepo.findAll();
+	@JsonView(Views.ViewMessage.class)
+	public List<Message> findAll() {
+		return messageRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewDemande.class)
-	public Demande find(@PathVariable Long id) {
+	@JsonView(Views.ViewMessage.class)
+	public Message find(@PathVariable Long id) {
 
-		Optional<Demande> optDemande = demandeRepo.findById(id);
+		Optional<Message> optMessage = messageRepo.findById(id);
 
-		if (optDemande.isPresent()) {
-			return optDemande.get();
+		if (optMessage.isPresent()) {
+			return optMessage.get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
 
 	@PostMapping("")
-	public Demande create(@RequestBody Demande demande) {
-		demande = demandeRepo.save(demande);
+	public Message create(@RequestBody Message message) {
+		message = messageRepo.save(message);
 
-		return demande;
+		return message;
 	}
 
 	@PutMapping("/{id}")
-	public Demande update(@RequestBody Demande demande, @PathVariable Long id) {
-		if (!demandeRepo.existsById(id)) {
+	public Message update(@RequestBody Message message, @PathVariable Long id) {
+		if (!messageRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 
-		demande = demandeRepo.save(demande);
+		message = messageRepo.save(message);
 
-		return demande;
+		return message;
 	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		demandeRepo.deleteById(id);
+		messageRepo.deleteById(id);
 	}
 }
