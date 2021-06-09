@@ -37,19 +37,15 @@ public class Entite {
 	private boolean beneficiaire;
 	
 	@OneToMany(mappedBy = "entite", cascade = CascadeType.ALL)
-
 	private List<Don> dons = new ArrayList<Don>();
 	
 	@OneToMany(mappedBy = "entite", cascade = CascadeType.ALL)
-
 	private List<Adresse> adresses = new ArrayList<Adresse>();
 	
 	@OneToMany(mappedBy = "entite", cascade = CascadeType.ALL)
-
 	private List<Demande> demandes = new ArrayList<Demande>();
 	
 	@OneToMany(mappedBy = "entite", cascade = CascadeType.ALL)
-
 	private List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
 	
 	

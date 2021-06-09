@@ -49,6 +49,37 @@ public class DemandeRestController {
 		}
 	}
 
+	@GetMapping("/messagerie/list/{id}/beneficiaire")
+	@JsonView(Views.ViewDemande.class)
+	public List<Demande> findListMessagerieIfBenefeciaire(@PathVariable Long id) {
+		
+		return demandeRepo.findAllAccepterEtNomCorrespondantByEntiteByIdIfBeneficiaire(id);
+		
+	}
+	
+	@GetMapping("/messagerie/list/{id}/donneur")
+	@JsonView(Views.ViewDemande.class)
+	public List<Demande> findListMessagerieIfDonneur(@PathVariable Long id) {
+		
+		return demandeRepo.findAllAccepterEtNomCorrespondantByEntiteByIdIfDonneur(id);
+		
+	}
+
+	@GetMapping("/messagerie/list/histoire/{id}/beneficiaire")
+	@JsonView(Views.ViewDemande.class)
+	public List<Demande> findListMessagerieHistoriqueIfBenefeciaire(@PathVariable Long id) {
+		
+		return demandeRepo.findAllAccepterEtNomCorrespondantByEntiteByIdIfBeneficiaire(id);
+		
+	}
+	
+	@GetMapping("/messagerie/list/histoire/{id}/donneur")
+	@JsonView(Views.ViewDemande.class)
+	public List<Demande> findListMessagerieHistoriqueIfDonneur(@PathVariable Long id) {
+		
+		return demandeRepo.findAllAccepterEtNomCorrespondantByEntiteByIdIfDonneur(id);
+		
+	}
 	@PostMapping("")
 	public Demande create(@RequestBody Demande demande) {
 		demande = demandeRepo.save(demande);
