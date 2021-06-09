@@ -25,7 +25,13 @@ public interface ILotRepository extends JpaRepository<Lot, Long> {
 			+ "d.lot.statut = sopra.ShareYourFood.model.Statut.DISPONIBLE and "
 			+ "d.lot.don.entite.id = :idEntite")
 	List<Lot> findAllDisponibleAccepteByEntiteById(@Param("idEntite") Long idEntite);
+	
+	@Query("select l from Lot l WHERE l.statut = sopra.ShareYourFood.model.Statut.DONNE "
+			+ "ORDER BY l.volume")			
+	List<Lot> findAllDerniersLotsDonneTrieParVolume();	
 
+	@Query("select count(l) from Lot l where l.statut = sopra.ShareYourFood.model.Statut.DONNE")
+	List<Lot> findAllLotsDonne();	
 
 //	@Query("select d.lot from Don d where d.entite.id=:idEntite")
 //	List<Lot> findAllByDemande(@Param("idEntite") Long idEntite);
