@@ -22,6 +22,7 @@ import sopra.ShareYourFood.model.Produit;
 import sopra.ShareYourFood.model.Views;
 import sopra.ShareYourFood.repository.IProduitRepository;
 
+
 @RestController
 @RequestMapping("/produit")
 @CrossOrigin("*")
@@ -38,7 +39,7 @@ public class ProduitRestController {
 
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewProduit.class)
-	public Produit find(@PathVariable Long id) {
+	public Produit find(@PathVariable String id) {
 
 		Optional<Produit> optProduit = produitRepo.findById(id);
 
@@ -57,7 +58,7 @@ public class ProduitRestController {
 	}
 
 	@PutMapping("/{id}")
-	public Produit update(@RequestBody Produit produit, @PathVariable Long id) {
+	public Produit update(@RequestBody Produit produit, @PathVariable String id) {
 		if (!produitRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
@@ -68,7 +69,7 @@ public class ProduitRestController {
 	}
 
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
+	public void delete(@PathVariable String id) {
 		produitRepo.deleteById(id);
 	}
 }
