@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Share Your Food</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+</head>
+<body>
+<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <div class="collapse navbar-collapse collapse justify-content-between" id="navbarNavAltMarkup">
+		    <div class="navbar-nav">
+		      <a class="nav-item nav-link" href="Acceuil2.html">Accueil</a>
+		      <a class="nav-item nav-link" href="Contact2.html">Contact</a>
+		      <a class="nav-item nav-link" href="Information2.html">Informations</a>
+		      <a class="nav-item nav-link" href="pageDonneur.html">Donner</a>
+		      <a class="nav-item nav-link" href="pageBeneficiaire.html">Recevoir</a>
+		      <a class="nav-item nav-link" href="TableauBordDonneur.html">Tableau de Bord</a>
+		      <a class="nav-item nav-link" href="Messagerie.html">Messagerie</a>
+		    </div>
+		    <div class="navbar-nav">
+		      <a class="nav-item nav-link" href="Acceuil1">Deconnexion</a>
+		      <a class="nav-item nav-link" href="Profil.html">Mon profil</a>
+		     </div>
+		  </div>
+		</nav>
+</header>
+
+	<div class="container">
+	
+		​
+		<div id="creaDonForm" class="card mt-3" style="display: yes;">
+
+			<div class="card-header bg-info text-white text-center">
+				<h2>Création d'un Don</h2>
+			</div>
+
+			<div class="card-body">
+				<div class="form-group">
+					<label for="nom">Nom du don :</label> <input type="text"
+						class="form-control" id="nom">
+				</div>
+				<table id="donTable" class="table">
+					<tr class="row">
+						<th class="col-md-6"><label for="lots">Lots
+								disponibles :</label></th>
+						<th class="col-md-4"><label for="quantite">Quantité :</label>
+						</th>
+						<th class="col-md-2"><label for="add"> </label></th>
+					</tr>
+				</table>
+				<form>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-6">
+								<select id="lots" class="form-control">
+									<option value="lot 1">Lot de fruits</option>
+									<option value="lot 2">Lot de produits frais</option>
+								</select>
+							</div>
+							<div class="col-md-4">
+								<input type="number" class="form-control" id="quantite">
+							</div>
+							<div class="col-md-2">
+								<button type="button" class="btn btn-success btn-md"
+									onclick="add();">
+									<i class="fa fa-plus"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="destinataire">A qui est-ce destiné ?</label><br>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox"
+								id="inlineCheckbox1" value="option1"> <label
+								class="form-check-label" for="inlineCheckbox1">Particulier</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="checkbox"
+								id="inlineCheckbox1" value="option2"> <label
+								class="form-check-label" for="inlineCheckbox2">Association</label>
+						</div>
+					</div>
+				</form>
+
+				<div class="card-footer">
+					<div class="row">
+						<div class="col text-center">
+							<div class="btn-group btn-group-lg float-middle ml-auto mr-auto">
+								<button type="button"
+									class="btn btn-success btn-lg ml-auto mr-auto"  onclick="window.location.href = 'PageDonneur.html'">VALIDER</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			​
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+	​
+</body>
+</html>

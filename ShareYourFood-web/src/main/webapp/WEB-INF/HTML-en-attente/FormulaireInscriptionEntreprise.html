@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Formulaire d'inscription Entreprise</title>
+
+<link rel="stylesheet"
+
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div
+				class="collapse navbar-collapse collapse justify-content-between"
+				id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link" href="Acceuil1.html">Accueil</a> <a
+						class="nav-item nav-link" href="Contact.html">Contact</a> <a
+						class="nav-item nav-link" href="Information.html">Informations</a>
+				</div>
+
+				<div class="navbar-nav">
+					<a class="nav-item nav-link" href="Inscription.html">Inscription</a>
+					<a class="nav-item nav-link" href="Connexion.html">Connexion</a>
+				</div>
+			</div>
+		</nav>
+	</header>​
+
+	<div class="container">
+
+		<div class="card mt-3">
+
+			<div class="card-header bg-success text-white text-center"><h2>Formulaire d'inscription : Entreprise</h2></div>
+
+			<div class="card-body">
+			
+				<p><label for="type">Je suis:</label></p>
+				
+				<p>
+				<input type="radio" name="type" value="particulier"/> Particulier
+				<input type="radio" name="type" value="entreprise"/> Entreprise
+				<input type="radio" name="type" value="association"/> Association
+				</p>
+				
+				<p><label for="listeEntreprise">Nom de l'entreprise:*</label>
+				<a href="CreationEntiteEntreprise.html" class="btn btn-success btn-m float-right"><i class="fas fa-plus-square"> Nouvelle entreprise</i></a></p>
+				<p>
+				
+				<input class="form-control" list="browsers" name="browser" id="browser" placeholder="Rechercher une entreprise">
+				<datalist id="browsers">
+					<option value="leclerc">Leclerc</option>
+					<option value="auchan">Auchan</option>
+					<option value="intermarche">Intermatché</option>
+					<option value="superU">Super U</option>
+					<option value="lidl">Lidl</option>
+					<option value="carrefour">Carrefour</option>
+				</datalist>
+				<p>
+				
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Nom de l'entreprise</th>
+						<th>SIRET</th>
+						<th>Adresse</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td><i class="fas fa-check"></i></td>
+					</tr>
+				</tbody>
+			</table>
+				
+				<p>Données personnelles:</p>
+				
+				<p><label for="pseudo">Pseudo:</label></p>
+				<p><input type="text" class="form-control" name="pseudo"/><p>
+				
+				<p><label for="email">Email:*</label></p>
+				<p><input type="email" class="form-control" name="email"/><p>
+				
+				<p><label for="motdepasse">Mot de passe:*</label></p>
+				<p><input type="text" class="form-control" name="motdepasse"/><p>
+				
+				<p>Les champs * sont obligatoires</p>
+			
+			</div>
+
+			<div class="card-footer">
+
+				<a href="JeSuis.html" class="btn btn-danger btn-lg"><i class="fas fa-window-close"> Annuler</i></a>
+				<a href="" class="btn btn-success btn-lg"><i class="fas fa-check-square"> Valider</i></a>
+
+			</div>
+
+		</div>
+	</div>
+	
+	<footer class="bg-light text-center text-lg-start mt-3">Mentions Légales</footer>
+
+</body>
+
+</html>
+
