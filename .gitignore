@@ -7,3 +7,7 @@
 .project
 
 bin/
+
+ShareYourFood/target/
+
+ShareYourFood-web/target/
