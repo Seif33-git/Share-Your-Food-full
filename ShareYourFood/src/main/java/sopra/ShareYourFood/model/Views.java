@@ -21,7 +21,6 @@ public class Views {
 	public class ViewDemandeWithLot extends ViewDemande{}
 	public class ViewDemandeWithEntite  extends ViewDemande{}
 
-	public static class ViewEntite extends ViewCommon {}
 	public static class ViewParticulier extends ViewEntite {}
 	public static class ViewParticulierDetail extends ViewParticulier {}
 	public static class ViewAssociation extends ViewEntite {}
