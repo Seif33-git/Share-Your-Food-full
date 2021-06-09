@@ -1,5 +1,7 @@
 package sopra.ShareYourFood.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +30,9 @@ public class Message {
 	@Column(name = "donneur")
 	@JsonView(Views.ViewCommon.class)
 	private Boolean donneur;
+	@Column(name = "dtEnvoi")
+	@JsonView(Views.ViewCommon.class)
+	private Date dtEnvoi;
 	@ManyToOne
 	@JoinColumn(name = "demande_id")
 	@JsonView(Views.ViewMessageWithDemande.class)

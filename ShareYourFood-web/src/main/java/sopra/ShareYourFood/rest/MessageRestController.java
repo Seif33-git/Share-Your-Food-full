@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import sopra.ShareYourFood.model.Demande;
 import sopra.ShareYourFood.model.Message;
 import sopra.ShareYourFood.model.Views;
 import sopra.ShareYourFood.repository.IMessageRepository;
@@ -35,7 +36,16 @@ public class MessageRestController {
 	public List<Message> findAll() {
 		return messageRepo.findAll();
 	}
-
+	@GetMapping("/messagerie/facetoface/{idDemande}")
+	@JsonView(Views.ViewMessage.class)
+	public List<Message> findListMessagerieIfBenefeciaire(@PathVariable Long idDemande) {
+		
+		return messageRepo.findAllPourUneDemande(idDemande);
+		
+	}
+	
+	
+	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewMessage.class)
 	public Message find(@PathVariable Long id) {
