@@ -18,57 +18,57 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.ShareYourFood.model.Don;
+import sopra.ShareYourFood.model.Lot;
 import sopra.ShareYourFood.model.Views;
-import sopra.ShareYourFood.repository.IDonRepository;
+import sopra.ShareYourFood.repository.ILotRepository;
 
 @RestController
-@RequestMapping("/don")
+@RequestMapping("/lot")
 @CrossOrigin("*")
-public class DonRestController {
+public class LotRestController {
 
 	@Autowired
-	private IDonRepository donRepo;
+	private ILotRepository lotRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewDon.class)
-	public List<Don> findAll() {
-		return donRepo.findAll();
+	@JsonView(Views.ViewLot.class)
+	public List<Lot> findAll() {
+		return lotRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewDon.class)
-	public Don find(@PathVariable Long id) {
+	@JsonView(Views.ViewLot.class)
+	public Lot find(@PathVariable Long id) {
 
-		Optional<Don> optDon = donRepo.findById(id);
+		Optional<Lot> optLot = lotRepo.findById(id);
 
-		if (optDon.isPresent()) {
-			return optDon.get();
+		if (optLot.isPresent()) {
+			return optLot.get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
 
 	@PostMapping("")
-	public Don create(@RequestBody Don don) {
-		don = donRepo.save(don);
+	public Lot create(@RequestBody Lot lot) {
+		lot = lotRepo.save(lot);
 
-		return don;
+		return lot;
 	}
 
 	@PutMapping("/{id}")
-	public Don update(@RequestBody Don don, @PathVariable Long id) {
-		if (!donRepo.existsById(id)) {
+	public Lot update(@RequestBody Lot lot, @PathVariable Long id) {
+		if (!lotRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 
-		don = donRepo.save(don);
+		lot = lotRepo.save(lot);
 
-		return don;
+		return lot;
 	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		donRepo.deleteById(id);
+		lotRepo.deleteById(id);
 	}
 }

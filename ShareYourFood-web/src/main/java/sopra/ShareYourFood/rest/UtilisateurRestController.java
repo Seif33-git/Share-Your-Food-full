@@ -18,57 +18,57 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import sopra.ShareYourFood.model.Don;
+import sopra.ShareYourFood.model.Utilisateur;
 import sopra.ShareYourFood.model.Views;
-import sopra.ShareYourFood.repository.IDonRepository;
+import sopra.ShareYourFood.repository.IUtilisateurRepository;
 
 @RestController
-@RequestMapping("/don")
+@RequestMapping("/utilisateur")
 @CrossOrigin("*")
-public class DonRestController {
+public class UtilisateurRestController {
 
 	@Autowired
-	private IDonRepository donRepo;
+	private IUtilisateurRepository utilisateurRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewDon.class)
-	public List<Don> findAll() {
-		return donRepo.findAll();
+	@JsonView(Views.ViewUtilisateur.class)
+	public List<Utilisateur> findAll() {
+		return utilisateurRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewDon.class)
-	public Don find(@PathVariable Long id) {
+	@JsonView(Views.ViewUtilisateur.class)
+	public Utilisateur find(@PathVariable Long id) {
 
-		Optional<Don> optDon = donRepo.findById(id);
+		Optional<Utilisateur> optUtilisateur = utilisateurRepo.findById(id);
 
-		if (optDon.isPresent()) {
-			return optDon.get();
+		if (optUtilisateur.isPresent()) {
+			return optUtilisateur.get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
 
 	@PostMapping("")
-	public Don create(@RequestBody Don don) {
-		don = donRepo.save(don);
+	public Utilisateur create(@RequestBody Utilisateur utilisateur) {
+		utilisateur = utilisateurRepo.save(utilisateur);
 
-		return don;
+		return utilisateur;
 	}
 
 	@PutMapping("/{id}")
-	public Don update(@RequestBody Don don, @PathVariable Long id) {
-		if (!donRepo.existsById(id)) {
+	public Utilisateur update(@RequestBody Utilisateur utilisateur, @PathVariable Long id) {
+		if (!utilisateurRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 
-		don = donRepo.save(don);
+		utilisateur = utilisateurRepo.save(utilisateur);
 
-		return don;
+		return utilisateur;
 	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		donRepo.deleteById(id);
+		utilisateurRepo.deleteById(id);
 	}
 }
