@@ -25,8 +25,8 @@
 				id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<a class="nav-item nav-link" href="Acceuil1.html">Accueil</a> <a
-						class="nav-item nav-link" href="Contact.html">Contact</a> <a
-						class="nav-item nav-link" href="Information.html">Informations</a>
+						class="nav-item nav-link" href="Contact1.html">Contact</a> <a
+						class="nav-item nav-link" href="Informations1.html">Informations</a>
 				</div>
 
 				<div class="navbar-nav">
@@ -42,91 +42,92 @@
 	<div class="container">
 
 		<div class="card mt-3">
+			<form action="association" method="post">
+				<div class="card-header bg-info text-white text-center">
+					<h2>Formulaire d'inscription : Association</h2>
+				</div>
 
-			<div class="card-header bg-info text-white text-center">
-				<h2>Formulaire d'inscription : Association</h2>
-			</div>
+				<div class="card-body">
 
-			<div class="card-body">
+					<p>
+						<label for="type">Je suis:</label>
+					</p>
 
-				<p>
-					<label for="type">Je suis:</label>
-				</p>
+					<p>
+						<input type="radio" name="type" value="particulier" />
+						Particulier <input type="radio" name="type" value="entreprise" />
+						Entreprise <input type="radio" name="type" value="association" />
+						Association
+					</p>
 
-				<p>
-					<input type="radio" name="type" value="particulier" /> Particulier
-					<input type="radio" name="type" value="entreprise" /> Entreprise <input
-						type="radio" name="type" value="association" /> Association
-				</p>
+					<p>
+						<label for="listeEntreprise">Nom de l'association:*</label> <a
+							href="CreationEntiteAssociation.html"
+							class="btn btn-success btn-m float-right"><i
+							class="fas fa-plus-square"> Nouvelle association</i></a>
+					</p>
+					<p>
 
-				<p>
-					<label for="listeEntreprise">Nom de l'association:*</label> <a
-						href="CreationEntiteAssociation.html"
-						class="btn btn-success btn-m float-right"><i
-						class="fas fa-plus-square"> Nouvelle association</i></a>
-				</p>
-				<p>
+						<input class="form-control" list="browsers" name="browser"
+							id="browser" placeholder="Rechercher une association">
+						<datalist id="browsers">
+							<option value="croixRouge">La Croix Rouge</option>
+							<option value="donPourTous">Don pour tous</option>
+							<option value="ensemble">Ensemble</option>
+						</datalist>
+					<p>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Nom de l'association</th>
+								<th>Numéro associatif</th>
+								<th>Adresse</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>-</td>
+								<td>-</td>
+								<td>-</td>
+								<td><i class="fas fa-check"></i></td>
+							</tr>
+						</tbody>
+					</table>
 
-					<input class="form-control" list="browsers" name="browser"
-						id="browser" placeholder="Rechercher une association">
-					<datalist id="browsers">
-						<option value="croixRouge">La Croix Rouge</option>
-						<option value="donPourTous">Don pour tous</option>
-						<option value="ensemble">Ensemble</option>
-					</datalist>
-				<p>
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Nom de l'association</th>
-							<th>Numéro associatif</th>
-							<th>Adresse</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>-</td>
-							<td>-</td>
-							<td>-</td>
-							<td><i class="fas fa-check"></i></td>
-						</tr>
-					</tbody>
-				</table>
+					<p>Données personnelles:</p>
 
-				<p>Données personnelles:</p>
+					<p>
+						<label for="pseudo">Pseudo:</label>
+					</p>
+					<p>
+						<input type="text" class="form-control" name="pseudo" />
+					<p>
+					<p>
+						<label for="email">Email:*</label>
+					</p>
+					<p>
+						<input type="email" class="form-control" name="email" />
+					<p>
+					<p>
+						<label for="motdepasse">Mot de passe:*</label>
+					</p>
+					<p>
+						<input type="text" class="form-control" name="motdepasse" />
+					<p>
+					<p>Les champs * sont obligatoires</p>
 
-				<p>
-					<label for="pseudo">Pseudo:</label>
-				</p>
-				<p>
-					<input type="text" class="form-control" name="pseudo" />
-				<p>
-				<p>
-					<label for="email">Email:*</label>
-				</p>
-				<p>
-					<input type="email" class="form-control" name="email" />
-				<p>
-				<p>
-					<label for="motdepasse">Mot de passe:*</label>
-				</p>
-				<p>
-					<input type="text" class="form-control" name="motdepasse" />
-				<p>
-				<p>Les champs * sont obligatoires</p>
+				</div>
 
-			</div>
+				<div class="card-footer">
 
-			<div class="card-footer">
+					<a href="JeSuis.html" class="btn btn-danger btn-lg"><i
+						class="fas fa-window-close"> Annuler</i></a> <a href=""
+						class="btn btn-success btn-lg"><i class="fas fa-check-square">
+							Valider</i></a>
 
-				<a href="JeSuis.html" class="btn btn-danger btn-lg"><i
-					class="fas fa-window-close"> Annuler</i></a> <a href=""
-					class="btn btn-success btn-lg"><i class="fas fa-check-square">
-						Valider</i></a>
-
-			</div>
-
+				</div>
+			</form>
 		</div>
 	</div>
 

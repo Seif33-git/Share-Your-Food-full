@@ -16,8 +16,8 @@
 				id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<a class="nav-item nav-link" href="Acceuil1.html">Accueil</a> <a
-						class="nav-item nav-link" href="Contact.html">Contact</a> <a
-						class="nav-item nav-link" href="Information.html">Informations</a>
+						class="nav-item nav-link" href="Contact1.html">Contact</a> <a
+						class="nav-item nav-link" href="Informations1.html">Informations</a>
 				</div>
 
 				<div class="navbar-nav">
@@ -29,34 +29,47 @@
 	</header>
 
 	<div class="container">
-			​
-		<div id="creaLotForm" class="card mt-3" style="display: yes;">
-			<div class="card-header bg-info text-white text-center">
-				<h2>Inscription</h2>
-			</div>
-
-			<div class="card-body">
-
-				<div class="form-group">
-					<label for="choix1">Donner :</label> <input type="checkbox"
-						name="choix1" checked> <label for="choix2">Bénéficier:</label>
-					<input type="checkbox" name="choix2" checked>
+		​
+		<div id="inscriptionForm" class="card mt-3" style="display: yes;">
+			<form action="inscription" method="post">
+				<div class="card-header bg-info text-white text-center">
+					<h2>Inscription</h2>
 				</div>
-				<div class="card-m-3">
-					<span> Qu'est ce qu'un don ? </span>
-				</div>
-				<div class="card-footer">
-					<div class="row">
-						<div class="col text-center">
-							<div class="btn-group btn-group-lg float-middle ml-auto mr-auto">
-								<button type="button"
-									class="btn btn-success btn-lg ml-auto mr-auto"
-									onclick="window.location.href = 'JeSuis.html'">Inscription</button>
+
+				<div class="card-body">
+
+					<div class="form-group">
+						<label for="choix1">Donner :</label> <input type="checkbox"
+							name="choix1" checked> <label for="choix2">Bénéficier:</label>
+						<input type="checkbox" name="choix2" checked>
+					</div>
+					<div class="card-m-3">
+						<span> Qu'est ce qu'un don ? </span>
+					</div>
+
+					<div id="inscriptionForm" class="card mt-3" style="display: yes;">
+						<span> A afficher si donner coché</span>
+					</div>
+					<div id="inscriptionForm" class="card mt-3" style="display: yes;">
+						<span> A afficher si recevoir coché</span>
+					</div>
+					<div id="inscriptionForm" class="card mt-3" style="display: yes;">
+						<span> A afficher si donner  et recevoir coché</span>
+					</div>
+
+					<div class="card-footer">
+						<div class="row">
+							<div class="col text-center">
+								<div class="btn-group btn-group-lg float-middle ml-auto mr-auto">
+									<button type="button"
+										class="btn btn-success btn-lg ml-auto mr-auto"
+										onclick="window.location.href = 'JeSuis.html'">Inscription</button>
+								</div>
 							</div>
 						</div>
-					</div>				
+					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 
