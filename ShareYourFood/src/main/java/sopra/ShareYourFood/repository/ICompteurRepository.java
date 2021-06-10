@@ -1,5 +1,9 @@
 package sopra.ShareYourFood.repository;
 
-public class ICompteurRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import sopra.ShareYourFood.model.Don;
+
+public class ICompteurRepository extends JpaRepository<Compteur, Long> {
 
 }
