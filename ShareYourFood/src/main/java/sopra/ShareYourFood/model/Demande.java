@@ -37,6 +37,7 @@ public class Demande {
 	@Enumerated(EnumType.STRING)
 	@JsonView(Views.ViewCommon.class)
 	private StatutNotif statutNotif;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "entite_id")
 	@JsonView(Views.ViewDemandeWithEntite.class)

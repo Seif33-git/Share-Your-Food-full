@@ -48,7 +48,51 @@ public class DemandeRestController {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
+	
+//	@GetMapping("/{id}")
+//	@JsonView(Views.ViewDemande.class)
+//	public Demande findDemandeByIdWithMessage(@PathVariable Long id) {
+//
+//		Optional<Demande> optDemande = demandeRepo.findDemandeByIdWithMessage(id);
+//
+//		if (optDemande.isPresent()) {
+//			return optDemande.get();
+//		} else {
+//			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+//		}
+//	}
 
+	@GetMapping("/messagerie/list/{id}/beneficiaire")
+	@JsonView(Views.ViewDemande.class)
+	public List<Demande> findListMessagerieIfBenefeciaire(@PathVariable Long id) {
+		
+		return demandeRepo.findAllAccepterEtNomCorrespondantByEntiteByIdIfBeneficiaire(id);
+		
+	}
+	
+	@GetMapping("/messagerie/list/{id}/donneur")
+	@JsonView(Views.ViewDemande.class)
+	public List<Demande> findListMessagerieIfDonneur(@PathVariable Long id) {
+		
+		return demandeRepo.findAllAccepterEtNomCorrespondantByEntiteByIdIfDonneur(id);
+		
+	}
+
+	@GetMapping("/messagerie/list/histoire/{id}/beneficiaire")
+	@JsonView(Views.ViewDemande.class)
+	public List<Demande> findListMessagerieHistoriqueIfBenefeciaire(@PathVariable Long id) {
+		
+		return demandeRepo.findAllAccepterEtNomCorrespondantByEntiteByIdIfBeneficiaire(id);
+		
+	}
+	
+	@GetMapping("/messagerie/list/histoire/{id}/donneur")
+	@JsonView(Views.ViewDemande.class)
+	public List<Demande> findListMessagerieHistoriqueIfDonneur(@PathVariable Long id) {
+		
+		return demandeRepo.findAllAccepterEtNomCorrespondantByEntiteByIdIfDonneur(id);
+		
+	}
 	@PostMapping("")
 	public Demande create(@RequestBody Demande demande) {
 		demande = demandeRepo.save(demande);

@@ -48,7 +48,38 @@ public class LotRestController {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
+	
+	@GetMapping("/non-donne-by-entite/{id}")
+	@JsonView(Views.ViewLot.class)
+	public List<Lot> findNonDonneByEntite(@PathVariable Long id) {
+		return lotRepo.findAllNonDonneByEntiteById(id);
+	}
+	
+	@GetMapping("/donne-by-entite/{id}")
+	@JsonView(Views.ViewLot.class)
+	public List<Lot> findDonneByEntite(@PathVariable Long id) {
+		return lotRepo.findAllDonneByEntiteById(id);
+	}
 
+	
+	@GetMapping("/TableauDeBordBeneficiaire/{idEntite}/")
+	@JsonView(Views.ViewLot.class)
+	public List<Lot> findTBB(@PathVariable Long idEntite) {
+		List<Lot> lots =lotRepo.findAllNonDonneEtDemandeAccOuPasRepByEntiteById(idEntite);
+		
+		return lots;
+		
+	}
+	
+	@GetMapping("/TableauDeBordBeneficiaire/historique/{idEntite}/")
+	@JsonView(Views.ViewLot.class)
+	public List<Lot> findTBBH(@PathVariable Long idEntite) {
+		List<Lot> lots =lotRepo.findAllDonneEtDemandeArchiveeByEntiteById(idEntite);
+		
+		return lots;
+		
+	}
+	
 	@PostMapping("")
 	public Lot create(@RequestBody Lot lot) {
 		lot = lotRepo.save(lot);
